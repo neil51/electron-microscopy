@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper, left=30mm, right=40mm, top=35mm, bottom=25mm} 
+
+%%% PACKAGES
+\usepackage{threeparttable}
+\usepackage[utf8]{inputenc}
+\usepackage{rotating} 
+\usepackage{setspace}
+\usepackage{subfigure} % pictures (subpictures), tables (subtables)
+\usepackage{url} % make url visible
+\usepackage{tabularx} % fits the width of a table to width of the text
+\usepackage{acronym} % list of abbrevations
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[german, ngerman, english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{epstopdf} 
+\usepackage[T1]{fontenc}
+%\usepackage{natbib} % implements both author-year and numbered references
+\usepackage{fancyhdr}
+
+\usepackage[backend = biber, sorting = none]{biblatex}
+\usepackage{csquotes}
+\addbibresource{references.bib}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage[all]{nowidow}
+\counterwithin{figure}{section}
+\numberwithin{equation}{section}
+\usepackage{textgreek}
+\usepackage{makecell}
+
+
+%%% ToC (table of contents) 
+\usepackage[nottoc]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} 
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape}
+
+%%% END Article customizations
+
+\begin{document}
+	
+	\parindent 0pt
+	
+	\pagenumbering{Roman}
+
+	%%% Cover sheet 
+	\include{coversheet}
+	\clearpage
+
+	\begin{spacing}{1.5}
+		
+		%%% abstract
+		\include{abstract}
+		\clearpage
+		
+		%%% table of contents
+		\tableofcontents
+		\clearpage
+
+		%%% List of abbrevations
+		\input{abbrevations}
+		
+		%%%"List of abbrevations" in ToC
+		\addcontentsline{toc}{section}{List of Abbreviations}%
+		
+		\clearpage
+		
+		\pagenumbering{arabic}   
+		
+		%%%%%%%%%%%%%%%%%%%Beginn
+
+        %%% for document: fancy pagestyle
+        \pagestyle{fancy}
+        \lhead{}
+        \chead{}
+        \rhead{\leftmark}
+        \lfoot{}
+        \cfoot{\thepage}
+        \rfoot{}
+		\setlength{\headheight}{14.00pt}
+  
+		\input{chapter1}
+    
+		
+		
+		\input{chapter2}        
+  
+		\input{chapter3}
+		
+
+        \input{chapter4}
+		
+
+        %% stop fancy pagestyle for rest of document
+       \pagestyle{plain}
+
+  
+        \printbibliography
+        \clearpage
+
+        %%% list of figures
+        \listoffigures
+        \clearpage
+
+        %%% list of tables
+        \listoftables
+        \clearpage
+		
+		\input{appendix}
+		\clearpage
+		
+		%% declaration of an oath
+        \input{declaration}
+		\clearpage
+		
+	\end{spacing}
+	
+	
+\end{document}
